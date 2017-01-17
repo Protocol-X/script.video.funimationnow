@@ -131,8 +131,6 @@ class WatchListUI(xbmcgui.WindowXML):
 
             self.setVisible(LOADING_SCREEN, False);
 
-        pass;
-
 
     def setSelectedContent(self):
 
@@ -214,13 +212,9 @@ class WatchListUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-            
-            pass;
+
 
         self.setVisible(LOADING_SCREEN, False);
-
-
-        pass;
 
 
     def setListContent(self, viewType):
@@ -262,8 +256,6 @@ class WatchListUI(xbmcgui.WindowXML):
 
                     lcontrol.addItem(listitem); 
 
-                    pass;
-
                 else:
 
                     self.isEmpty = False;
@@ -295,8 +287,6 @@ class WatchListUI(xbmcgui.WindowXML):
 
                         except Exception as inst:
                             self.logger.error(inst);
-
-                            pass;
 
 
                         if 'progress' in item:
@@ -366,18 +356,11 @@ class WatchListUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-            
-            pass;
-
-
-        pass;
 
 
     def setInitialItem(self, landing_page, navSet):
         self.navigation = navSet;
         self.landing_page = landing_page;
-
-        pass;
 
 
     def getCurrentSet(self):
@@ -397,8 +380,6 @@ class WatchListUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
                 
-                pass;  
-            
 
     def createButtons(self):
 
@@ -444,9 +425,6 @@ class WatchListUI(xbmcgui.WindowXML):
                 utils.text2Display(tmpText, 'RGB', None, (255, 255, 255), 36, 'Bold', tmpImgNoFocus, multiplier=1, sharpen=False, bgimage='watchlist_off_nofocus.png');
 
 
-        pass;
-
-
     def checkQueue(self):
 
         if self.queueLookup is None:
@@ -457,8 +435,6 @@ class WatchListUI(xbmcgui.WindowXML):
 
         else:
             self.myQueue = funimationnow.getMyQueue(self.queueLookup);
-
-            pass;
 
         self.logger.debug(json.dumps(self.myQueue));
 
@@ -497,8 +473,6 @@ class WatchListUI(xbmcgui.WindowXML):
                     except Exception as inst:
                         self.logger.error(inst);
                         
-                        pass;
-
 
                 elif controlID == HISTORY_PANEL_LIST:
 
@@ -547,9 +521,6 @@ class WatchListUI(xbmcgui.WindowXML):
             self.menuNavigation(controlID);
 
 
-        pass;
-
-
     def setButtonStates(self):
 
         try:
@@ -566,14 +537,10 @@ class WatchListUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-            
-            pass;
 
 
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
-
-        pass;
 
 
     def getResultCode(self):
@@ -597,9 +564,6 @@ class WatchListUI(xbmcgui.WindowXML):
             
             self.landing_page.result_code = HOME_SCREEN_CODE;
             self.close();           
-
-
-        pass;
 
 
     def runDirectoryChecks(self):

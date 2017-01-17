@@ -55,11 +55,6 @@ class RatingViewUI(xbmcgui.WindowXMLDialog):
         self.runDirectoryChecks();
         self.createDialofTextImgs();
 
-        #if self.initialRating in RATING_BUTTONS:
-            #RATING_BUTTONS.remove(self.initialRating);
-
-        pass;
-
 
     def createDialofTextImgs(self):
 
@@ -83,8 +78,6 @@ class RatingViewUI(xbmcgui.WindowXMLDialog):
             pass;
 
 
-        pass;
-
 
     def runDirectoryChecks(self):
 
@@ -94,8 +87,6 @@ class RatingViewUI(xbmcgui.WindowXMLDialog):
         self.dialog_content = os.path.join(dsPath, 'media/dialog');
 
         utils.checkDirectory(self.dialog_content);
-
-        pass;
                    
 
     def onInit(self):
@@ -107,20 +98,12 @@ class RatingViewUI(xbmcgui.WindowXMLDialog):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-
-        pass;
-
 
     def onAction(self, action):
 
         if action.getId() in PREVIOUS_WINDOW:
             self.userRating = 0;
             self.close();
-
-        
-        pass;
 
 
     def onClick(self, controlID):
@@ -134,16 +117,12 @@ class RatingViewUI(xbmcgui.WindowXMLDialog):
             self.userRating = 0;
             self.close();
 
-        pass;
-
 
     def onFocus(self, controlID):
-
         pass;
 
 
     def getUserRating(self):
-
         return self.userRating;
 
 

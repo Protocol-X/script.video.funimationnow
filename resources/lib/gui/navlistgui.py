@@ -43,15 +43,7 @@ class NAvListUi(xbmcgui.WindowXMLDialog):
         self.listset = None;
         self.sX = 0;
         self.sY = 51;
-        #fidx
         self.sip = None;
-
-
-    '''def __init__( self, *args, **kwargs ):
-        xbmcgui.WindowXMLDialog.__init__( self, *args, **kwargs )
-        xbmc.executebuiltin( "Skin.Reset(AnimeWindowXMLDialogClose)" )
-        xbmc.executebuiltin( "Skin.SetBool(AnimeWindowXMLDialogClose)" )
-        self.listing = kwargs.get( "listing" )'''
 
 
     def setInitialItem(self, listset, x, y):
@@ -60,12 +52,9 @@ class NAvListUi(xbmcgui.WindowXMLDialog):
         self.sX = x;
         self.sY += y;
 
-        pass;
-
 
     def onInit(self):
 
-        #self.logger.error(CWD)
         self.runDirectoryChecks();
 
 
@@ -74,20 +63,6 @@ class NAvListUi(xbmcgui.WindowXMLDialog):
 
         else:
             self.close();
-
-
-
-        '''import time;
-
-        time.sleep(10)
-
-        self.cde = 22226666666222;
-
-
-        self.close();'''
-
-
-        pass;
 
 
     def onClick(self, controlID):
@@ -102,9 +77,6 @@ class NAvListUi(xbmcgui.WindowXMLDialog):
 
         elif controlID == 1000:
             self.close();
-
-
-        pass;
 
 
     def createOptionList(self):
@@ -139,7 +111,6 @@ class NAvListUi(xbmcgui.WindowXMLDialog):
 
     def runDirectoryChecks(self):
 
-        #dsPath = xbmc.translatePath(os.path.join('special://userdata/addon_data', utils.getAddonInfo('id')));
         dsPath = xbmc.translatePath(utils.addonInfo('profile'));
 
         self.select_main = os.path.join(dsPath, 'media/select/main');
@@ -151,8 +122,7 @@ class NAvListUi(xbmcgui.WindowXMLDialog):
 
 
     def getSelectedItemPosition(self):
-
-        return self.sip
+        return self.sip;
 
 
 
@@ -164,13 +134,7 @@ def select(listset, sX, sY):
     selectui.setInitialItem(listset, sX, sY);
     selectui.doModal();
 
-    '''
-        idx: dict({
-            'title': btitle,
-            'value': bvalue
-        })
-    '''
-    
+
     selectedItemPosition = selectui.getSelectedItemPosition();
 
     del selectui;

@@ -1206,7 +1206,6 @@ def getMyQueueConfig():
 
         else:
             utils.sendNotification(30301, 3000);
-            pass;
 
 
     except Exception as inst:
@@ -1269,7 +1268,6 @@ def getMyQueueItems(mqconfig):
                     else:
                         #utils.sendNotification(30301, 3000);
                         success = False;
-                        pass;
 
                 except Exception as inst:
             
@@ -1279,7 +1277,6 @@ def getMyQueueItems(mqconfig):
 
             else:
                 utils.sendNotification(30301, 3000);
-                pass;
 
 
         except Exception as inst:
@@ -1371,7 +1368,6 @@ def getMyQueue(mqconfig):
 
             else:
                 utils.sendNotification(30301, 3000);
-                pass;
 
 
         except Exception as inst:
@@ -2751,8 +2747,6 @@ def updateProgess(litem, currentTime, totalTime):
             except Exception as inst:
                 logger.error(inst);
 
-                pass;
-
         else:
             logger.error(30303);
 
@@ -2866,8 +2860,6 @@ def updateRating(sRating, sLookup, sPath, sParams):
             except Exception as inst:
                 logger.error(inst);
 
-                pass;
-
         else:
             logger.error(30303);
 
@@ -2936,7 +2928,5 @@ def quoteplus(params):
 
 
 def execute(test):
-    
     logger.debug(test);
 
-    pass;

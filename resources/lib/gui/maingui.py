@@ -196,19 +196,13 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
         utils.unlock();
 
-        pass;
-
 
     def setPrevWindow(self, prev):
         self.previousWindow = prev;
 
-        pass;
-
 
     def setLandingPage(self):
         self.landing_page = self;
-
-        pass;
 
 
     def onAction(self, action):
@@ -246,7 +240,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
                 except Exception as inst:
                     self.logger.error(inst);
 
-                    pass;
 
             elif controlID in QUE_BTNS:
                 #self.updateQueue(controlID, update=False); #listitem remove not working with threads
@@ -258,9 +251,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
         else:
             xbmcgui.WindowXML.onAction(self, action);
-  
-        
-        pass;
 
 
     def onClick(self, controlID):
@@ -330,9 +320,7 @@ class FunimationNowUI(xbmcgui.WindowXML):
             else:
                 self.logger.error(viewtype);
                 self.logger.error('No Url Found');
-                # we need to send a notification
 
-                pass;
 
         elif controlID == 5004:
             self.login();
@@ -379,9 +367,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
             self.menuNavigation(controlID);
 
 
-        pass;
-
-
     def onFocus(self, controlID):
 
         if 20500 <= controlID <= 20509:
@@ -391,8 +376,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
             except Exception as inst:
                 self.logger.error(inst);
-
-                pass;
 
 
             #self.populateDetails(controlID);
@@ -404,8 +387,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
         else:
             self.setVisible(SHOWCASE_DISPLAY, False);
-
-        pass;
 
 
     def adjustPosition(self, action):
@@ -528,9 +509,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
             self.logger.warn(inst);
 
 
-        pass;
-
-
     def setMenuItems(self, menuitems):
 
         #1001 - 1009
@@ -589,8 +567,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
             except Exception as inst:
                 self.logger.error(inst);
-
-                pass;
 
         utils.unlock();
 
@@ -704,14 +680,11 @@ class FunimationNowUI(xbmcgui.WindowXML):
                 except Exception as inst:
                     self.logger.error(inst);
 
-                    pass;
-
 
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
+        #See Line 696 & 812.  This is assigned to something, and should not be marked as an error
         [i.start() for i in threads];
         #[i.join() for i in threads];
 
@@ -733,8 +706,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.warn(inst);
-
-            pass;
 
 
         #for item in itemset[1]:
@@ -775,8 +746,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
             except Exception as inst:
                 self.logger.error(inst);
-
-                pass;
 
 
             if 'progress' in item:
@@ -846,13 +815,9 @@ class FunimationNowUI(xbmcgui.WindowXML):
             elif controlID == 20502 and cItem.size() < 1:
                 self.setVisible(20602, False);
 
-                pass;
-
 
             elif controlID == 20502:
                 self.setVisible(20602, True);
-
-                pass;
 
         except:
             pass;
@@ -954,8 +919,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
     def setShowDetails(self, cItem, sItem, sIdx, viewtype, loadDisplay):
 
@@ -1014,8 +977,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
                         self.logger.error(inst);
 
-                        pass;
-
                     try:
                         #New API Removed Genres added lame show status.  We will keep genres incase they decide ot add it back
                         #genres = 'Genres: %s' % sDetails.get('genres', 'NA');
@@ -1029,8 +990,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
                         self.logger.error(inst);
 
-                        pass;
-
                     try:
                         description = sDetails.get('description', None);
 
@@ -1040,8 +999,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
                             self.resetImage(SHOWCASE_DESCRIPTION_CONTROL);
 
                         self.logger.error(inst);
-
-                        pass;
 
 
                 dtlList = list([
@@ -1117,8 +1074,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
         except:
             efname = 'ed_filler';
 
-            pass;
-
 
         if loadDisplay:
 
@@ -1179,8 +1134,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
                         self.logger.error(inst);
 
-                        pass;
-
                     try:
                         subtitle = 'Title: %s' % sDetails.get('subtitle', 'NA');
 
@@ -1193,8 +1146,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
                         self.logger.error(inst);
 
-                        pass;
-
                     try:
                         description = sDetails.get('description', None);
 
@@ -1205,8 +1156,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
                             self.resetImage(SHOWCASE_DESCRIPTION_CONTROL);
 
                         self.logger.error(inst);
-
-                        pass;
 
                 dtlList = list([
                     [title, 56, os.path.join(self.details_title, ('%s.png' % efname))], 
@@ -1249,8 +1198,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
                 self.logger.error(inst);
 
-                pass;
-
 
         if sDetails:
 
@@ -1271,8 +1218,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
     def resetImage(self, control):
         self.getControl(control).setImage('');
-
-        pass;
 
 
     def makeDetails(self, details):
@@ -1404,8 +1349,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
                                     except Exception as inst:
                                         self.logger.error(inst);
 
-                                        pass;
-
                                     threads = [];
 
                                     self.formatItemSet(threads, itemset, 20002, 20502, 20602);
@@ -1456,8 +1399,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
                                 except Exception as inst:
                                     self.logger.error(inst);
 
-                                    pass;
-
 
                                 #needs to add que lookup for epty list
                     
@@ -1468,8 +1409,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
 
 
     def adjustNavShowQueueState(self, qParams, qState):
@@ -1498,8 +1437,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
 
     def prepNavigation(self, controlID):
 
@@ -1517,36 +1454,25 @@ class FunimationNowUI(xbmcgui.WindowXML):
                 if navtype == 'genres':
                     from resources.lib.gui.genreselectgui import genreselect;
 
-                    self.result_code = genreselect(self.landing_page, navset);
-
-                    pass;
+                    genreselect(self.landing_page, navset);
 
                 
                 elif navtype == 'dateadded':
                     from resources.lib.gui.audioselectgui import audioselect;
 
-                    self.result_code = audioselect(self.landing_page, navset);
-
-                    pass;
-
+                    audioselect(self.landing_page, navset);
 
                 elif navtype == 'watchlist':
                     from resources.lib.gui.watchlistgui import watchlist;
 
-                    self.result_code = watchlist(self.landing_page, navset);
-
-                    pass;
+                    watchlist(self.landing_page, navset);
 
             else:
                 self.logger.error('Navigation error we need to send an alert');
 
-            pass;
-
         else:
             self.logger.error('NO NAV SET FOUND')
             self.logger.error('-------------------')
-
-        pass;
 
 
     def menuNavigation(self, controlID):
@@ -1568,10 +1494,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-        pass;
-
 
     def setMenuButtonPlaceHolders(self):
 
@@ -1588,8 +1510,6 @@ class FunimationNowUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
 
         for idx in range(0, 9):
 
@@ -1602,13 +1522,9 @@ class FunimationNowUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
 
     def getResultCode(self):
         return self.result_code;
-
-        pass;
 
 
     def runDirectoryChecks(self):

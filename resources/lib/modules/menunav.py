@@ -80,8 +80,6 @@ def chooser(landing_page, parent, child, controlID):
     except Exception as inst:
         logger.error(inst);
 
-        pass;
-
 
     landing_page.result_code = result;
 
@@ -119,12 +117,8 @@ def search(landing_page, parent, child, controlID):
 
             search(landing_page);
 
-            pass;
-
         except Exception as inst:
             logger.error(inst);
-
-            pass;
 
     
     return RESULT_CODE;
@@ -153,12 +147,8 @@ def queue(landing_page, parent, child, controlID):
 
             watchlist(landing_page, mnavset);
 
-            pass;
-
         except Exception as inst:
             logger.error(inst);
-
-            pass;
 
     
     return RESULT_CODE;
@@ -189,12 +179,8 @@ def all(landing_page, parent, child, controlID):
 
             genreselect(landing_page, mnavset);
 
-            pass;
-
         except Exception as inst:
             logger.error(inst);
-
-            pass;
 
     
     return RESULT_CODE;
@@ -216,19 +202,16 @@ def simalcast(landing_page, parent, child, controlID):
             mnavset = dict({
                 'width': 108,
                 'title': 'SIMULDUBS',
-                'params': 'id=simulcasts&title=Simulcasts',
+                #'params': 'id=simulcasts&title=Simulcasts',
+                'params': 'id=broadcast-dubs&title=Broadcast Dubs',
                 'target': 'longlist',
                 'path': 'longlist/content/'
             });
 
             audioselect(landing_page, mnavset);
 
-            pass;
-
         except Exception as inst:
             logger.error(inst);
-
-            pass;
 
     
     return RESULT_CODE;
@@ -259,12 +242,8 @@ def genres(landing_page, parent, child, controlID):
 
             genreshows(landing_page, mnavset);
 
-            pass;
-
         except Exception as inst:
             logger.error(inst);
-
-            pass;
 
 
     return RESULT_CODE;
@@ -292,8 +271,6 @@ def settings(landing_page, parent, child, controlID):
     except Exception as inst:
         logger.error(inst);
 
-        pass;
-
 
     return RESULT_CODE;
 
@@ -310,9 +287,6 @@ def help(landing_page, parent, child, controlID):
 
     except Exception as inst:
         logger.error(inst);
-
-        pass;
-
 
 
     return RESULT_CODE;

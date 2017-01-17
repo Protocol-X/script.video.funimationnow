@@ -147,11 +147,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
 
             utils.unlock();
 
-            #self.getControl(RANGE_SELECT_LIST).setEnabled(False)
-
-
-        pass;
-
 
     def setInitialItem(self, landing_page, navSet):
 
@@ -166,9 +161,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
         self.landing_page = landing_page;
 
 
-        pass;
-
-
     def checkQueue(self):
 
         if self.queueLookup is None:
@@ -179,8 +171,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
 
         else:
             self.myQueue = funimationnow.getMyQueue(self.queueLookup);
-
-            pass;
 
         self.logger.debug(json.dumps(self.myQueue));
 
@@ -211,13 +201,9 @@ class GenreSelectUI(xbmcgui.WindowXML):
 
             except Exception as inst:
                 self.logger.error(inst);
-                
-                pass;
 
         elif controlID in SIDE_MENU:
             self.menuNavigation(controlID);
-
-        pass;
 
 
     def getGenres(self, subFilter=None, intial=False):
@@ -265,19 +251,12 @@ class GenreSelectUI(xbmcgui.WindowXML):
 
                 self.setupGenreSelect(genres);
 
-
-                pass;
             
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         self.setVisible(LOADING_SCREEN, False);
-
-
-        pass;
 
 
     def setupGenreSelect(self, genres):
@@ -293,6 +272,7 @@ class GenreSelectUI(xbmcgui.WindowXML):
         self.navparams = utils.parseValue(longList, ['items', 'pagination', 'params']);
 
         if filters:
+
             if not isinstance(filters, list):
                 filters = list([filters]);
 
@@ -369,12 +349,9 @@ class GenreSelectUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
 
             if self.navmenu and len(self.navmenu) >= 1:
                 self.setNavigationIndex();
-                pass;
 
             else:
                 #throw an error
@@ -429,18 +406,11 @@ class GenreSelectUI(xbmcgui.WindowXML):
             longList = funimationnow.getPage(self.navpath, ceParams);
 
             if longList:
-                
                 self.setShows(longList);
 
-                pass;
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-
-        pass;
 
 
     def setShows(self, longList):
@@ -570,8 +540,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
                                 self.logger.error(inst);
                                 ttname = 'added 0d ago';
 
-                                pass;
-
 
                             tempImg = os.path.join(self.shows_list_added, ('%s.png' % tfname));
 
@@ -588,8 +556,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
 
                         else:
                             shListitem.setProperty('starrating', '0.0');
-
-                            pass;
 
 
                         shListitem.setProperty('title', shTitle);
@@ -615,10 +581,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-        pass;
         
 
     def setNavigationIndex(self):
@@ -654,8 +616,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
         if disableSelect:
             
             self.getControl(RANGE_SELECT_LIST).setEnabled(False);
@@ -665,9 +625,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
             self.getControl(RANGE_SELECT_LIST).setEnabled(True);
 
         self.setVisible(LOADING_SCREEN, False);
-
-
-        pass;
 
 
     def getSelectList(self, controlID):
@@ -702,16 +659,12 @@ class GenreSelectUI(xbmcgui.WindowXML):
                 if cSelection is not None:
                     self.navmenu.values()[tIndex]['fidx'] = cSelection;
 
-                pass;
-
             elif controlID == RANGE_SELECT_LIST:
 
                 cSelection = select(self.navmenu.values()[tIndex], (sX + 1), sY);
                 
                 if cSelection is not None:
                     self.navmenu.values()[tIndex]['fidx'] = cSelection;
-
-                pass;
 
             if cSelection is not None:
 
@@ -727,10 +680,10 @@ class GenreSelectUI(xbmcgui.WindowXML):
                 for dIdx, nmenu in enumerate(self.navmenu.values(), 0):
 
                     sDict = self.navmenu.values()[dIdx];
-                    sParam = (sDict['fparam'], sDict['fchoices'][sDict['fidx']].get('value', alts[dIdx]));
+                    sParam = list([sDict['fparam'], sDict['fchoices'][sDict['fidx']].get('value', alts[dIdx])]);
 
                     if dIdx == 0 and sParam[1] == 'recent':
-                        sParam[1] == 'recent-shows';
+                        sParam[1] = 'recent-shows';
 
                     sParams.update({
                         sParam[0]: sParam[1],
@@ -750,19 +703,13 @@ class GenreSelectUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
 
-        pass;
-
 
     def getResultCode(self):
         return self.result_code;
-
-        pass;
 
 
     def menuNavigation(self, controlID):
@@ -780,8 +727,6 @@ class GenreSelectUI(xbmcgui.WindowXML):
             
             self.landing_page.result_code = HOME_SCREEN_CODE;
             self.close();   
-
-        pass;
 
 
     def runDirectoryChecks(self):
