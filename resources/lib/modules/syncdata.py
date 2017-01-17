@@ -63,10 +63,7 @@ def setDetailsData(pkey, details, refreshafter):
             dbcur.execute("DELETE FROM detailsdata WHERE pkey IN ('%s')" % pkey);
 
         except Exception as inst:
-
             logger.error(inst);
-
-            pass;
 
         
         try: 
@@ -78,10 +75,7 @@ def setDetailsData(pkey, details, refreshafter):
             dbcur.execute("INSERT INTO detailsdata Values (?, ?, ?)", (pkey, details, refreshafter));
 
         except Exception as inst:
-
             logger.error(inst);
-
-            pass;
 
 
         logger.debug('Commiting DB change.');

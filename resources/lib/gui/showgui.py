@@ -188,8 +188,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
             utils.unlock();
 
-        pass;
-
 
     def onAction(self, action):
 
@@ -199,23 +197,14 @@ class ShowViewUI(xbmcgui.WindowXML):
         if actionID in EXIT_CLICK and controlID == BACK_BTN:
             self.close();
 
-            pass;
-
         elif actionID in PREVIOUS_WINDOW:
             self.updateDepth();
-
-            pass;
-
         
         if controlID in (LIST_QUEUE_BTN, RELATED_SHOWS_LIST):
             self.updateQueue(LIST_QUEUE_BTN, False);
 
-        
-        if controlID == EPISODE_LIST:
+        elif controlID == EPISODE_LIST:
             self.setListDisplay();
-
-        
-        pass;
 
 
     def onClick(self, controlID):
@@ -223,9 +212,7 @@ class ShowViewUI(xbmcgui.WindowXML):
         #self.logger.debug(controlID)
 
         if controlID == BACK_BTN:
-            #self.close();
             self.updateDepth();
-            pass;
 
         elif controlID in (VERSIONS_SELECT_LIST, SEASONS_SELECT_LIST):
             self.currentIndex = 0;
@@ -238,27 +225,16 @@ class ShowViewUI(xbmcgui.WindowXML):
             self.currentIndex = 0;
             self.updateDepth(True);
 
-            pass;
-
         elif controlID in RATING_BTNS:
             self.setUserRating(controlID);
-
-            pass;
 
         elif controlID in PLAYBACK_BTNS:
             self.prepPlayBack(controlID);
             
-            pass;
-
         elif controlID in QUEUE_BTNS:
             from resources.lib.modules import workers;
 
             workers.DetailsThread(target=self.updateQueue, args=(controlID, True)).start();
-
-            pass;
-
-
-        pass;
 
 
     def onFocus(self, controlID):
@@ -268,8 +244,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         elif controlID in (LIST_QUEUE_BTN, RELATED_SHOWS_LIST):
             self.updateQueue(LIST_QUEUE_BTN, False);
-
-        pass;
 
 
     def setInitialItem(self, landing_page, xrfPath, xrfParam):
@@ -294,11 +268,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-
-        pass;
-
 
     def checkHistory(self):
 
@@ -310,8 +279,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         else:
             self.myHistory = funimationnow.getHistory(self.histLookup);
-
-            pass;
 
         self.logger.debug(json.dumps(self.myHistory));
 
@@ -327,8 +294,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         else:
             self.myQueue = funimationnow.getMyQueue(self.queueLookup);
 
-            pass;
-
         self.logger.debug(json.dumps(self.myQueue));
 
 
@@ -342,8 +307,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         else:
             self.myRatings = funimationnow.getMyRatings(self.rateLookup);
-
-            pass;
 
         self.logger.debug(json.dumps(self.myRatings));
 
@@ -383,8 +346,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
                     except Exception as inst:
                         self.logger.error(inst);
-                        
-                        pass;
 
             t = Timer(0.15, self.createShowDisplay);
             t.start();
@@ -393,24 +354,10 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-        pass;
-
 
     def setUserRating(self, controlID):
 
         from resources.lib.gui.ratingsgui import rating;
-
-        '''
-            Appears to be some API issue with individual episode ratings
-            <authentication>
-                <error>Unexpected response from legacy api when posting user rating</error>
-                <anonymous>false</anonymous>
-            </authentication>
-
-            #Update, New API Appears to work
-        '''
 
         try:
 
@@ -432,8 +379,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
                         self.getControl(DISPLAY_RATING_IMG).setImage('flagging/rating/%s_overlay.png' % self.userRating);
                         self.checkRatings();
-
-                    pass;
 
 
             elif controlID == EPISODE_RATING_BTN:
@@ -465,19 +410,12 @@ class ShowViewUI(xbmcgui.WindowXML):
                             self.getControl(EPISODE_PREVIEW_USER_RATING).setImage('flagging/rating/%s_overlay.png' % self.userRating);
                             self.checkRatings();
 
-                        pass;
-
 
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         self.checkRatings();
-
-
-        pass;
 
 
     def updateQueue(self, controlID, update=False):
@@ -527,17 +465,11 @@ class ShowViewUI(xbmcgui.WindowXML):
                         qcBtn.setSelected(qState);
 
                 else:
-                    #qcBtn.setVisible(False)
                     qcBtn.setSelected(qState);
-                    #qcBtn.setVisible(True)
 
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-        pass;
 
 
     def updateSeasonList(self):
@@ -568,8 +500,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
 
 
     def createShowDisplay(self):
@@ -614,8 +544,6 @@ class ShowViewUI(xbmcgui.WindowXML):
                 self.logger.error(inst);
                 #some kind of failure message is needed
 
-                pass;
-
         else:
             #we need a notification of failure
             pass;
@@ -652,11 +580,9 @@ class ShowViewUI(xbmcgui.WindowXML):
                     self.userRating = self.myRatings.get(self.starKey).get('myStarRating', 0);
 
                 except:
-
                     self.starKey = None;
                     self.userRating = 0;
 
-                    pass;
 
             else:
                 self.starKey = None;
@@ -763,8 +689,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
     def processSpotliteData(self, sdDetails):
 
@@ -855,8 +779,6 @@ class ShowViewUI(xbmcgui.WindowXML):
                 except Exception as inst:
                     self.logger.error(inst);
 
-                    pass;
-
 
     def setShowCaseDisplay(self):
 
@@ -898,8 +820,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
 
 
         if self.description:
@@ -949,8 +869,6 @@ class ShowViewUI(xbmcgui.WindowXML):
                 self.logger.error('flagging/progress/%s.png' % progress)
                 self.getControl(SPOTLIGHT_PROGRESS).setImage('flagging/progress/%s.png' % progress, False);
 
-        pass;
-
 
     def setSeasonInfoFilter(self, showset):
 
@@ -984,8 +902,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         if self.navmenu and len(self.navmenu) >= 2:
             self.setNavigationIndex();
@@ -994,9 +910,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         else:
             #throw an error
             pass;
-
-
-        pass;
 
 
     def setSeasonInfo(self, filters):
@@ -1066,8 +979,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         if self.navmenu and len(self.navmenu) >= 2:
             self.setNavigationIndex();
@@ -1076,9 +987,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         else:
             #throw an error
             pass;
-
-
-        pass;
 
 
     def setEpisodesPointer(self, showset):
@@ -1104,10 +1012,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-        pass;
 
 
     def setSeasonEpisodes(self, longList):
@@ -1149,7 +1053,6 @@ class ShowViewUI(xbmcgui.WindowXML):
                             except:
                                 languages = 'Japanese, English';
 
-                                pass;
 
                             historyParams = utils.parseValue(episode, ['history', 'data', 'params']);
                             startPosition = utils.parseValue(self.myHistory, [historyParams, 'startPosition']);
@@ -1205,10 +1108,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-        pass;
 
 
     def populateEpisodeList(self):
@@ -1306,7 +1205,6 @@ class ShowViewUI(xbmcgui.WindowXML):
                     except Exception as inst:
                         self.logger.error(inst);
 
-                        pass;
 
             epControl.addItem(listitem); 
 
@@ -1342,10 +1240,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-        pass;
-
 
     def setRelatedTitle(self, rTitle):
 
@@ -1366,11 +1260,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-
-        pass;
 
 
     def setSimilarShows(self, longList):
@@ -1440,10 +1329,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-        pass;
-
 
     def getLanguages(self, episode):
 
@@ -1508,11 +1393,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-
-        pass;
-
 
     def getSelectList(self, controlID):
 
@@ -1543,8 +1423,6 @@ class ShowViewUI(xbmcgui.WindowXML):
                 
                 if cSelection is not None:
                     self.navmenu['SEASONS']['fidx'] = cSelection;
-
-                pass;
 
             if cSelection is not None:
 
@@ -1595,8 +1473,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         self.setVisible(EPISODE_LOADING, False);
 
@@ -1615,8 +1491,6 @@ class ShowViewUI(xbmcgui.WindowXML):
 
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
-
-        pass;
 
 
     def getConrolID(self, action):
@@ -1752,8 +1626,6 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
     def getLangSelectList(self):
 
@@ -1778,16 +1650,12 @@ class ShowViewUI(xbmcgui.WindowXML):
             if cSelection is not None:
                 self.languages[lId]['fidx'] = cSelection;
 
-            pass;
-
             if cSelection is not None:
                 self.setLangNavigationIndex(lId);
 
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
 
 
     def setLangNavigationIndex(self, lId):
@@ -1924,19 +1792,11 @@ class ShowViewUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         utils.unlock();
 
         if videourl is not None and pbListItem is not None:
-
             player().run(videourl, pbListItem);
-
-            pass;
-
-
-        pass;
 
 
     def clearCurrentLists(self, cLists):
@@ -1949,15 +1809,9 @@ class ShowViewUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
-        pass;
-
 
     def getResultCode(self):
         return self.result_code;
-
-        pass;
 
     
     def runDirectoryChecks(self):

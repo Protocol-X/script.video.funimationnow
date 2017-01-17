@@ -133,14 +133,10 @@ class AudioSelectUI(xbmcgui.WindowXML):
 
             utils.unlock();
 
-        pass;
-
 
     def setInitialItem(self, landing_page, navSet):
         self.navigation = navSet;
         self.landing_page = landing_page;
-
-        pass;
 
 
     def checkQueue(self):
@@ -153,8 +149,6 @@ class AudioSelectUI(xbmcgui.WindowXML):
 
         else:
             self.myQueue = funimationnow.getMyQueue(self.queueLookup);
-
-            pass;
 
         self.logger.debug(json.dumps(self.myQueue));
 
@@ -185,13 +179,9 @@ class AudioSelectUI(xbmcgui.WindowXML):
 
             except Exception as inst:
                 self.logger.error(inst);
-                
-                pass;
 
         elif controlID in SIDE_MENU:
             self.menuNavigation(controlID);
-
-        pass;
 
 
     def getGenres(self, subFilter=None, intial=False):
@@ -217,19 +207,12 @@ class AudioSelectUI(xbmcgui.WindowXML):
 
                 self.setupGenreSelect(genres);
 
-
-                pass;
             
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         self.setVisible(LOADING_SCREEN, False);
-
-
-        pass;
 
 
     def setupGenreSelect(self, genres):
@@ -245,6 +228,7 @@ class AudioSelectUI(xbmcgui.WindowXML):
         self.navparams = utils.parseValue(longList, ['items', 'pagination', 'params']);
 
         if filters:
+
             if not isinstance(filters, list):
                 filters = list([filters]);
 
@@ -296,12 +280,9 @@ class AudioSelectUI(xbmcgui.WindowXML):
             except Exception as inst:
                 self.logger.error(inst);
 
-                pass;
-
 
             if self.navmenu and len(self.navmenu) >= 1:
                 self.setNavigationIndex();
-                pass;
 
             else:
                 #throw an error
@@ -335,18 +316,11 @@ class AudioSelectUI(xbmcgui.WindowXML):
             longList = funimationnow.getPage(self.navpath, ceParams);
 
             if longList:
-                
                 self.setShows(longList);
 
-                pass;
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-
-        pass;
 
 
     def setShows(self, longList):
@@ -477,8 +451,6 @@ class AudioSelectUI(xbmcgui.WindowXML):
                                 self.logger.error(inst);
                                 ttname = 'added 0d ago';
 
-                                pass;
-
 
                             tempImg = os.path.join(self.shows_list_added, ('%s.png' % tfname));
 
@@ -495,8 +467,6 @@ class AudioSelectUI(xbmcgui.WindowXML):
 
                         else:
                             shListitem.setProperty('starrating', '0.0');
-
-                            pass;
 
 
                         shListitem.setProperty('title', shTitle);
@@ -523,10 +493,6 @@ class AudioSelectUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-        pass;
-        
 
     def setNavigationIndex(self):
 
@@ -555,12 +521,7 @@ class AudioSelectUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
         self.setVisible(LOADING_SCREEN, False);
-
-
-        pass;
 
 
     def getSelectList(self, controlID):
@@ -595,8 +556,6 @@ class AudioSelectUI(xbmcgui.WindowXML):
                 
                 if cSelection is not None:
                     self.navmenu.values()[tIndex]['fidx'] = cSelection;
-
-                pass;
 
 
             if cSelection is not None:
@@ -636,19 +595,13 @@ class AudioSelectUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
 
-        pass;
-
 
     def getResultCode(self):
         return self.result_code;
-
-        pass;
 
 
     def menuNavigation(self, controlID):
@@ -666,8 +619,6 @@ class AudioSelectUI(xbmcgui.WindowXML):
             
             self.landing_page.result_code = HOME_SCREEN_CODE;
             self.close();   
-
-        pass;
 
 
     def runDirectoryChecks(self):

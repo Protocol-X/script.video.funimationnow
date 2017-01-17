@@ -67,8 +67,6 @@ class player(xbmc.Player):
                 except:
                     self.startPosition = 0;
 
-                    pass;
-
             else:
                 self.startPosition = 0;
 

@@ -77,9 +77,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
         self.viewState = EXIT_CODE;
 
 
-        pass;
-
-
     def onInit(self):
 
         self.validateState();
@@ -87,13 +84,9 @@ class TrialScreenUI(xbmcgui.WindowXML):
 
         utils.unlock();
 
-        pass;
-
 
     def setViewState(self, viewstate):
         self.viewState = viewstate;
-
-        pass;
 
 
     def onAction(self, action):
@@ -103,9 +96,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
         if actionID in PREVIOUS_WINDOW:
             self.resultcode = EXIT_CODE;
             self.close();
-
-
-        pass;
 
 
 
@@ -125,17 +115,11 @@ class TrialScreenUI(xbmcgui.WindowXML):
             self.validateState();
 
         elif controlID == LOGOUT_BTN:
-
             self.logoutProcess();
-
-            pass;
 
         else:
             self.resultcode = EXIT_CODE;
             self.close()
-        
-
-        pass;
 
 
     def logoutProcess(self):
@@ -178,11 +162,7 @@ class TrialScreenUI(xbmcgui.WindowXML):
         elif self.viewState == SUCCESS_CODE:
 
             self.resultcode = self.viewState;
-            
             self.close();
-
-
-        pass;
 
 
     def createTrialSplash(self):
@@ -222,9 +202,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
         self.control30606size = utils.text2Image(lang(30606).encode('utf-8'), 'RGBA', (255, 0, 0, 0), (150, 39, 171), 66, 'Bold', tempImg, 1, True);
 
 
-        pass;
-
-
     def setTrialObjectSizes(self):
 
         try:
@@ -260,16 +237,9 @@ class TrialScreenUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-
-        pass;
-
 
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
-
-        pass;
 
 
     def runDirectoryChecks(self):

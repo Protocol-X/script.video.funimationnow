@@ -76,9 +76,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
         self.resultcode = False;
 
 
-        pass;
-
-
     def onInit(self):
 
         self.setLoginObjectSizes();
@@ -88,8 +85,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
         #https://github.com/MediaBrowser/plugin.video.emby/blob/develop/resources/lib/dialogs/loginconnect.py
 
         utils.unlock();
-
-        pass;
 
 
     def onClick(self, controlID):
@@ -104,28 +99,18 @@ class TrialScreenUI(xbmcgui.WindowXML):
             (success, access) = self.login();
 
             if success and access:
-
                 self.resultcode = SUCCESS_CODE;
                 self.close();
 
-                pass;
-
             elif success and not access:
-
                 self.resultcode = EXPIRE_CODE;
                 self.close();
-
-                pass;
 
             else:
                 self.setVisible(LOGIN_STAT, True);
 
-                pass;
-
         elif controlID == FORGOT_BTN:
             utils.openBrowser('http://www.funimation.com/android-mobile/forgot-password?territory=%s' % funimationnow.getTerritory());
-
-        pass;
 
 
     def onAction(self, action):
@@ -157,9 +142,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
             self.close();
 
 
-        pass;
-
-
     def createLoginSplash(self):
 
         self.runDirectoryChecks();
@@ -186,9 +168,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
 
         tempImg = os.path.join(self.media_login, ('%s.png' % '30623'));
         self.control1006size = utils.text2Image(lang(30623).encode('utf-8'), 'RGB', (68, 3, 151), (255, 0, 0), 66, 'Regular', tempImg, 1, True);
-
-
-        pass;
 
 
     def setLoginObjectSizes(self):
@@ -222,11 +201,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-
-        pass;
-
 
     def updateMaskedPassword(self):
 
@@ -240,8 +214,6 @@ class TrialScreenUI(xbmcgui.WindowXML):
 
         self.password_field.setText(bullet_string);
 
-        pass;
-
 
     def login(self):
 
@@ -254,13 +226,9 @@ class TrialScreenUI(xbmcgui.WindowXML):
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
 
-        pass;
-
 
     def setEnabled(self, view, state):
         self.getControl(view).setEnabled(state);
-
-        pass;
 
 
     def runDirectoryChecks(self):

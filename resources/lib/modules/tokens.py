@@ -89,10 +89,7 @@ def setToken(system, user, token):
             dbcur.execute("DELETE FROM tokens WHERE system IN ('%s')" % (system));
 
         except Exception as inst:
-
             logger.error(inst);
-
-            pass;
 
         
         try: 
@@ -102,10 +99,7 @@ def setToken(system, user, token):
             dbcur.execute("INSERT INTO tokens Values (?, ?, ?)", (system, user, token));
 
         except Exception as inst:
-
             logger.error(inst);
-
-            pass;
 
 
         logger.debug('Commiting DB change.');

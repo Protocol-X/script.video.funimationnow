@@ -55,10 +55,7 @@ class SplashScreenUI(xbmcgui.WindowXMLDialog):
 
 
     def onInit(self):
-
         self.playIntro();
-
-        pass;
 
 
     def playIntro(self):

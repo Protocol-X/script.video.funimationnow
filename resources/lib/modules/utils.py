@@ -117,8 +117,6 @@ def unlock():
 def idle():
     return execute('Dialog.Close(busydialog)');
 
-    pass;
-
 
 def getToken(system):
     import tokens;
@@ -388,7 +386,6 @@ def text2HelpMultiWrap(text, type, bgcolor, txtcolor, fontsize, bsize, twidth, f
                 textdraw.text((5, ih), img[0], (255, 255, 255), img[1]);
 
             elif img[1] is None:
-                pass;
                 textimg.paste(textimgL, (5, ih));
 
             else:
@@ -922,8 +919,6 @@ def resetSettings():
     except Exception as inst:
         logger.error(inst);
 
-        pass;
-
 
 def parseValue(item, paths, encoded=True, func=None):
 
@@ -946,8 +941,6 @@ def parseValue(item, paths, encoded=True, func=None):
         #logger.error(inst);
 
         value = None;
-
-        pass;
 
 
     return value;
@@ -1102,8 +1095,6 @@ def dateExpired(date):
         except Exception as inst:
             logger.error(inst);
 
-            pass;
-
         return True;
 
     else:
@@ -1212,11 +1203,7 @@ def resolutionPicker(videourl):
 
     except Exception as inst:
         newurl = videourl;
-        logger.error('WE HAVE AN EXCEPTION')
-        
         logger.error(inst);
-
-        pass;
         
 
 

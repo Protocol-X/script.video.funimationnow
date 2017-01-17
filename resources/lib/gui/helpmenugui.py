@@ -103,8 +103,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
 
         self.setVisible(LOADING_SCREEN, False);
 
-        pass;
-
 
     def createHelpMenuButtons(self):
 
@@ -119,11 +117,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
-
-
-        pass;
 
 
     def createButtons(self, pointers):
@@ -147,10 +140,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
                 except Exception as inst:
                     self.logger.error(inst);
 
-                    pass;
-                    
-                pass;
-
         else:
 
             for idx in range(1, 6):
@@ -164,25 +153,14 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
                 except Exception as inst:
                     self.logger.error(inst);
 
-                    pass;
-                    
-                pass;
-
-
-        pass;
-
 
     def onClick(self, controlID):
 
         if controlID in SIDE_MENU:
             self.getMenuitem(controlID);
 
-            pass;
-
         elif controlID == BACK_BTN:
             self.close();
-
-        pass;
 
 
     def getMenuitem(self, controlID):
@@ -208,7 +186,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
 
         self.setVisible(LOADING_SCREEN, False);
 
@@ -252,8 +229,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
 
 
     def faq(self, controlID, results):
@@ -334,8 +309,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
     def privacypolicy(self, controlID, results):
 
@@ -372,16 +345,17 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
 
                     else:
 
-
                         if len(tdict) > 0:
+
                             tList.append(tdict);
                             tdict = dict();
 
                         tdict.update({'name': prop.get('strong', '')});
 
+
                 except Exception as inst:
                     self.logger.error(inst);
-                    pass;
+
 
             if len(tdict) > 0:
                 tList.append(tdict);
@@ -462,84 +436,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
-
-    '''def privacypolicy(self, controlID, results):
-
-        try:
-
-            #contents = utils.parseValue(results, ['statictext', 'contents', 'content'], False);
-            contents = utils.parseValue(results, ['statictext', 'contents', 'p'], False);
-
-            if not isinstance(contents, list):
-                contents = list([contents]);
-
-
-            cidx = 0;
-            cih = 0;
-            ccontent = '';
-
-            self.logger.error(json.dumps(contents))
-
-
-            for idx, content in enumerate(contents, 0):
-
-                try:
-
-                    if content is None:
-                        content = ' ~~~_+_+_+_~~~';
-
-                    try:
-                        ccontent += content.replace(u"\u2028", '~~~');
-                    except:
-                        ccontent += content.get('strong', '').replace(u"\u2028", '~~~');
-                        ccontent += ' ~~~_+_+_+_~~~'
-
-                    cih = utils.text2HelpSize(ccontent, 'RGB', (255, 255, 255), (0, 0, 0), 36, (2560, 1340), 140, 'Regular', None, multiplier=1, sharpen=False, bgimage=None);
-
-                    if cih >= 1240:
-
-                        tempImg = os.path.join(self.help_privacy, ('%s-%s.png' % (controlID, cidx)));
-
-                        utils.text2HelpWrap(ccontent, 'RGB', (255, 255, 255), (0, 0, 0), 36, (2560, 1340), 140, 'Regular', tempImg, multiplier=1, sharpen=False, bgimage=None);
-
-                        content = content.encode('utf-8');
-
-                        helpList = self.getControl(LIST_DICT[controlID]);
-                        listitem = xbmcgui.ListItem(content, content, tempImg, tempImg);
-
-                        helpList.addItem(listitem);
-
-                        cidx += 1;
-                        cih = 0;
-                        ccontent = '';
-
-                except Exception as inst:
-                    self.logger.error(inst);
-
-                    pass;
-
-
-            if cih < 1240 and cih > 0:
-
-                tempImg = os.path.join(self.help_privacy, ('%s-%s.png' % (controlID, cidx)));
-
-                utils.text2HelpWrap(ccontent, 'RGB', (255, 255, 255), (0, 0, 0), 36, (2560, 1340), 140, 'Regular', tempImg, multiplier=1, sharpen=False, bgimage=None);
-
-                content = content.encode('utf-8');
-
-                helpList = self.getControl(LIST_DICT[controlID]);
-                listitem = xbmcgui.ListItem(content, content, tempImg, tempImg);
-
-                helpList.addItem(listitem);
-
-
-        except Exception as inst:
-            self.logger.error(inst);
-
-            pass;'''
-
 
     def terms(self, controlID, results):
 
@@ -601,8 +497,6 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
 
         except Exception as inst:
             self.logger.error(inst);
-
-            pass;
 
 
     def contactsupport(self, mailto):
@@ -676,13 +570,9 @@ class HelpMenuUI(xbmcgui.WindowXMLDialog):
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
 
-        pass;
-
 
     def getResultCode(self):
         return self.result_code;
-
-        pass;
 
 
 

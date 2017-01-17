@@ -2,8 +2,7 @@
 - Initial Beta Release Custom GUI Release
 - Converted to new FunimationNOW API
 - Custom UI to match unified cross platform apps
-- Bugs:
-   - Android Send E-Mail
+
 
 [B]0.0.3[/B]
 - Initial Beta Release

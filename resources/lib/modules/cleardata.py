@@ -73,8 +73,3 @@ def cleanup(skip_settings=False):
 
     except Exception as inst:
         logger.error(inst);
-
-        pass;
-
-
-    pass;

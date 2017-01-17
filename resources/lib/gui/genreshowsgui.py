@@ -116,8 +116,6 @@ class GenreShowsUI(xbmcgui.WindowXML):
         if self.landing_page and self.landing_page.result_code in (HOME_SCREEN_CODE, EXIT_CODE, LOGOUT_CODE):
             self.close();
 
-            pass;
-
         else:
 
             self.runDirectoryChecks();
@@ -131,17 +129,10 @@ class GenreShowsUI(xbmcgui.WindowXML):
 
             utils.unlock();
 
-            #self.getControl(SUB_SELECT_LIST).setEnabled(False)
-
-
-        pass;
-
 
     def setInitialItem(self, landing_page, navSet):
         self.navigation = navSet;
         self.landing_page = landing_page;
-
-        pass;
 
 
     def onClick(self, controlID):
@@ -182,14 +173,10 @@ class GenreShowsUI(xbmcgui.WindowXML):
 
             except Exception as inst:
                 self.logger.error(inst);
-                
-                pass;
+
 
         elif controlID in SIDE_MENU:
             self.menuNavigation(controlID);
-        
-
-        pass;
 
 
     def getGenres(self):
@@ -206,13 +193,8 @@ class GenreShowsUI(xbmcgui.WindowXML):
         except Exception as inst:
             self.logger.error(inst);
 
-            pass;
-
 
         self.setVisible(LOADING_SCREEN, False);
-
-
-        pass;
 
 
     def setGenreDisplay(self, longList):
@@ -224,6 +206,7 @@ class GenreShowsUI(xbmcgui.WindowXML):
         items = utils.parseValue(longList, ['items', 'item'], False);
 
         if items:
+            
             if not isinstance(items, list):
                 items = list([items]);
 
@@ -253,25 +236,13 @@ class GenreShowsUI(xbmcgui.WindowXML):
                 except Exception as inst:
                     self.logger.error(inst);
 
-                    pass;
-
-
-            pass;
-
-
-        pass;
-
 
     def setVisible(self, view, state):
         self.getControl(view).setVisible(state);
 
-        pass;
-
 
     def getResultCode(self):
         return self.result_code;
-
-        pass;
 
 
     def menuNavigation(self, controlID):
@@ -289,8 +260,6 @@ class GenreShowsUI(xbmcgui.WindowXML):
             
             self.landing_page.result_code = HOME_SCREEN_CODE;
             self.close();   
-
-        pass;
 
 
     def runDirectoryChecks(self):
