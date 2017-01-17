@@ -1,4 +1,4 @@
-#Funimation XBMC Plugin
+#FunimationNOW XBMC Plugin
 
 An XBMC plugin for streaming videos from funimation.com.
 
